@@ -36,13 +36,11 @@ getMovies().then((movies) => {
         loading.innerHTML += (`<p>id#${id} - ${title} - rating: ${rating}</p>`);
     });
 }).catch((error) => {
-<<<<<<< HEAD
+
     alert('Oh no! Something went wrong.\nCheck the console for details.');
     console.log(error);
-=======
   alert('Oh nos! Something went wrong.\nCheck the console for details.');
   console.log(error);
->>>>>>> rodger-scott
 });
 
 buttonAdd.addEventListener('click', (e) => {
