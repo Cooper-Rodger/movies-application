@@ -25,7 +25,7 @@ function addMovie () {
         body: JSON.stringify(blogPost),
     };
     fetch(url, options)
-        .then(console.log(response => response.json()))
+        .then(/* do something cool */)
         .catch(/* handle errors */);
 }
 
@@ -39,8 +39,6 @@ getMovies().then((movies) => {
 
     alert('Oh no! Something went wrong.\nCheck the console for details.');
     console.log(error);
-  alert('Oh nos! Something went wrong.\nCheck the console for details.');
-  console.log(error);
 });
 
 buttonAdd.addEventListener('click', (e) => {
