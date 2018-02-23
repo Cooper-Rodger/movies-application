@@ -13,6 +13,23 @@ const title = document.getElementById('title');
 const rating = document.getElementById('rating');
 const buttonAdd = document.getElementById('buttonAdd');
 
+const blogPost = {title: title.value, rating: rating.value};
+
+const url = '/api/movies';
+const options = {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(blogPost),
+};
+
+function addMovie () {
+    fetch(url, options)
+        .then(console.log(response => response.json()))
+        .catch(/* handle errors */);
+}
+
 getMovies().then((movies) => {
   loading.innerHTML = ('');
   console.log('Here are all the movies:');
@@ -25,6 +42,7 @@ getMovies().then((movies) => {
 });
 
 buttonAdd.addEventListener('click', (e) => {
-  console.log("test");
   e.preventDefault();
+  console.log(title.value);
+  addMovie();
 });
