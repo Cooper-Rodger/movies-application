@@ -13,6 +13,8 @@ const title = document.getElementById('title');
 const rating = document.getElementById('rating');
 const buttonAdd = document.getElementById('buttonAdd');
 
+refresh();
+
 function addMovie () {
     let blogPost = {title: title.value, rating: rating.value};
 
@@ -25,11 +27,9 @@ function addMovie () {
         body: JSON.stringify(blogPost),
     };
     fetch(url, options)
-        .then(/* do something cool */)
-        .catch(/* handle errors */);
+        .then( () => refresh() )
+        .catch( () => alert(`Something went wrong, and everyone dies. The end.`) );
 }
-
-refresh();
 
 function refresh() {
     getMovies().then((movies) => {
@@ -48,5 +48,4 @@ function refresh() {
 buttonAdd.addEventListener('click', (e) => {
     e.preventDefault();
     addMovie();
-    refresh();
 });
