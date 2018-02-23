@@ -9,8 +9,14 @@
 
     <div id="loading-setpoint" class="container">
         <h1>Loading...</h1>
-        <div class="loading-gif"><img src="img/loading.gif" alt="loading movie items"/></div>
         <p>To get started, edit <code>src/index.js</code>.</p>
+    </div>
+    <div>
+        <form action="../db.json" method="POST">
+            <label for="title">Title <input type="text" id="title" name="newMovie"></label><br>
+            <label for="rating">Rating <input type="text" id="rating" name="newMovie"></label>
+            <button id="buttonAdd">Add</button>
+        </form>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
