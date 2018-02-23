@@ -37,7 +37,7 @@ getMovies().then((movies) => {
     loading.innerHTML += (`<p>id#${id} - ${title} - rating: ${rating}</p>`);
   });
 }).catch((error) => {
-  alert('Oh no! Something went wrong.\nCheck the console for details.');
+  alert('Oh nos! Something went wrong.\nCheck the console for details.');
   console.log(error);
 });
 
