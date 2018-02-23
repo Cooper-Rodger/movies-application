@@ -3,16 +3,17 @@
 <head>
     <meta charset="UTF-8" />
     <title>My Application</title>
-    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
 
-    <div class="container">
+    <div id="loading-setpoint" class="container">
         <h1>Loading...</h1>
+        <div class="loading-gif"><img src="img/loading.gif" alt="loading movie items"/></div>
         <p>To get started, edit <code>src/index.js</code>.</p>
     </div>
-    <div class="loading-gif"></div>
 
-    <script src="/main.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="./main.js"></script>
 </body>
 </html>
