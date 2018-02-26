@@ -1,19 +1,29 @@
 {
   "movies": [
     {
-      "title": "Indiana Jones",
-      "rating": "5",
+      "title": "Star Wars: A New Hope",
+      "rating": "4",
       "id": 1
     },
     {
-      "title": "Another Movie",
-      "rating": "3",
+      "title": "Moana",
+      "rating": "5",
       "id": 2
     },
     {
-      "title": "Yet Another One",
-      "rating": "4",
+      "title": "Zootopia",
+      "rating": "5",
       "id": 3
+    },
+    {
+      "title": "Coming to America",
+      "rating": "5",
+      "id": 4
+    },
+    {
+      "title": "Garbage Pail Kids",
+      "rating": "1",
+      "id": 5
     }
   ]
 }

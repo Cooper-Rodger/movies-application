@@ -37,8 +37,8 @@ function editMovie(movieToEdit) {
     const currentRating = movieToEdit.children().first().next().next().text();
     const editForm = `<div class="editForm form">` +
         `<form action="../db.json" method="POST">` +
-        `<label for="title">Title:  <input type="text" id="edit-title-${id}" name="editMovie" value="${currentTitle}"></label>` +
-        `<label for="rating">Rating:  <input type="text" id="edit-rating-${id}" name="editMovie" value="${currentRating}"></label>` +
+        `<label for="title" class="input-label">Title:  <input type="text" class="input-text" id="edit-title-${id}" name="editMovie" value="${currentTitle}"></label>` +
+        `<label for="rating" class="input-label">Rating:  <input type="text" class="input-text" id="edit-rating-${id}" name="editMovie" value="${currentRating}"></label>` +
         `<button id="buttonEdit">Submit Changes</button></form></div>`;
     movieToEdit.append(editForm);
     document.getElementById('buttonEdit').addEventListener('click', (e) => {
