@@ -7,13 +7,18 @@
     },
     {
       "title": "Another Movie",
-      "rating": "4",
+      "rating": "3",
       "id": 2
     },
     {
-      "title": "Yet Another Movie",
-      "rating": "4",
+      "title": "Yet Another One",
+      "rating": "3",
       "id": 3
+    },
+    {
+      "title": "Snorlax",
+      "rating": "1000",
+      "id": 4
     }
   ]
 }

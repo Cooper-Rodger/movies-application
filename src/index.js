@@ -4,6 +4,7 @@ const loading = document.getElementsByClassName('loading-setpoint').item(0);
 const add = document.getElementById('add');
 const edit = document.getElementById('edit');
 let selectedMovie = undefined;
+let formIsOpen = false;
 
 refresh(); // refreshes the movie list upon initially loading the page
 
@@ -22,7 +23,11 @@ function addMovieSetup () { // actual function that allows us to add a movie via
 }
 
 function editMovie(movieToEdit) {
-    console.log(movieToEdit);
+    console.log(formIsOpen);
+    if (formIsOpen) {
+        return;
+    }
+    formIsOpen = true;
     const id = movieToEdit.attr('id');
     const currentTitle = movieToEdit.children().first().text();
     const currentRating = movieToEdit.children().first().next().next().text();
@@ -47,7 +52,7 @@ function editMovie(movieToEdit) {
             body: JSON.stringify(movieToSubmit),
         };
         fetch(url, options)
-            .then(() => refresh())
+            .then(() => refresh()).then( () => (formIsOpen = false))
             .catch(() => alert(`Something went wrong, and everyone dies. The end.`));
     });
 }
@@ -117,7 +122,7 @@ $(".loading-setpoint").on("click", "li", function() {
 }).on("click", ".edit", function() {
     editMovie(selectedMovie);
 }).on("click", ".remove", function() {
-    removeMovie(selectedMovie);
+    removeMovie(selectedMovie).off();
 });
 
 
