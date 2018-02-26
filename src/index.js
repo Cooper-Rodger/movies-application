@@ -101,7 +101,7 @@ function refresh() { // function that processes movies from the api request resp
         console.log('Here are all the movies:');
         temp += (`<ul id="moviesList">`);
         movies.forEach(({title, rating, id}) => {
-            temp += (`<li id="${id}"><span id=" ">${title}</span><br><span>${rating}</span><span class="hidden ident">${id}</span></li>` +
+            temp += (`<li id="${id}"><span id="title-${id}">${title}</span><br><span id="rating-${id}">${rating}</span></li>` +
                 `<div class="hidden menu"><button class="edit">Edit</button>` +
                 `<button class="remove">Remove</button></div>`);
         });
