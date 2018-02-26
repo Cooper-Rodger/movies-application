@@ -7,16 +7,14 @@
 </head>
 <body>
 
-    <div id="loading-setpoint" class="container">
+    <div class="container">
+        <div class="loading-setpoint">
         <h1>Loading...</h1>
         <p>To get started, edit <code>src/index.js</code>.</p>
-    </div>
-    <div>
-        <form action="../db.json" method="POST">
-            <label for="title">Title <input type="text" id="title" name="newMovie"></label><br>
-            <label for="rating">Rating <input type="text" id="rating" name="newMovie"></label>
-            <button id="buttonAdd">Add</button>
-        </form>
+        </div>
+        <div id="add-movie">
+            <button id="add">Add</button>
+        </div>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

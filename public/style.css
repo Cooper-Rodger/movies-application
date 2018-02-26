@@ -7,4 +7,17 @@ html, body {
     top: 60%;
     transform: translateY(-100%);
     text-align: center;
+    border: 3px solid orange;
+}
+
+img {
+    height: 400px;
+}
+
+li {
+    list-style: none;
+}
+
+.hidden {
+    display: none;
 }
