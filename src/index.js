@@ -24,9 +24,9 @@ function addMovieSetup () { // actual function that allows us to add a movie via
 function editMovie(movieToEdit) {
     console.log(movieToEdit);
     const id = movieToEdit.attr('id');
-    const currentTitle = movieToEdit.attr('title');
+    const currentTitle = movieToEdit.children().first().text();
     console.log(currentTitle);
-    const currentRating = movieToEdit.attr('rating');
+    const currentRating = movieToEdit.children().first().next().next().text();
     console.log(currentRating);
     console.log(id);
     const editForm = `<div class="editForm form">` +
@@ -101,7 +101,7 @@ function refresh() { // function that processes movies from the api request resp
         console.log('Here are all the movies:');
         temp += (`<ul id="moviesList">`);
         movies.forEach(({title, rating, id}) => {
-            temp += (`<li id="${id}"><span id=" ">${title}</span><br>rating: ${rating}<span class="hidden ident">${id}</span></li>` +
+            temp += (`<li id="${id}"><span id=" ">${title}</span><br><span>${rating}</span><span class="hidden ident">${id}</span></li>` +
                 `<div class="hidden menu"><button class="edit">Edit</button>` +
                 `<button class="remove">Remove</button></div>`);
         });
