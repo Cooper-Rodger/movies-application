@@ -25,10 +25,7 @@ function editMovie(movieToEdit) {
     console.log(movieToEdit);
     const id = movieToEdit.attr('id');
     const currentTitle = movieToEdit.children().first().text();
-    console.log(currentTitle);
     const currentRating = movieToEdit.children().first().next().next().text();
-    console.log(currentRating);
-    console.log(id);
     const editForm = `<div class="editForm form">` +
         `<form action="../db.json" method="POST">` +
         `<label for="title">Title <input type="text" id="edit-title-${id}" name="editMovie" value="${currentTitle}"></label>` +
@@ -39,7 +36,6 @@ function editMovie(movieToEdit) {
         e.preventDefault();
         $('.editForm').fadeOut();
         const url = `/api/movies/${id}`;
-        console.log(url);
         const title = document.getElementById('edit-title-' + id);
         const rating = document.getElementById('edit-rating-' + id);
         const movieToSubmit = { title: title.value, rating: rating.value};
@@ -53,33 +49,6 @@ function editMovie(movieToEdit) {
         fetch(url, options)
             .then(() => refresh())
             .catch(() => alert(`Something went wrong, and everyone dies. The end.`));
-
-        console.log(`normally would go through => processEditedMovie() but not now`);
-    });
-}
-
-function cleanUpID () {
-
-    getMovies().then((movies) => {
-        movies.forEach( ({id}, index) => {
-            let newID = index + 1;
-            // let oldID = {id};
-            // //before transform
-            // console.log(newID);
-            // oldID = newID;
-            // console.log(newID);
-            movies.id = newID;
-            console.log(JSON.stringify(movies));
-            // console.log(index);
-            const url = `/api/movies`;
-            const options = {
-                method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(movies),
-            };
-        })
     });
 }
 
@@ -101,11 +70,8 @@ function processAddedMovie() { // sends this movie request to the server and upd
 }
 
 function removeMovie(movieToRemove) {
-    console.log(movieToRemove);
     const id = movieToRemove.attr('id');
-    // fetch the list of movies again
     const url = `/api/movies/${id}`;
-    console.log(url);
     const options = {
         method: 'DELETE',
         headers: {
@@ -114,16 +80,14 @@ function removeMovie(movieToRemove) {
         body: JSON.stringify(movieToRemove),
     };
     fetch(url, options)
-        .then( () => cleanUpID() ).then( () => refresh() )
+        .then( () => refresh() )
         .catch(() => alert(`Something went wrong, and everyone dies. The end.`));
-    // use the id as a key value pair to find the movie that matches (maybe use .filter() ? )
 };
 
-function refresh() { // function that processes movies from the api request response from the server
+function refresh() {
     getMovies().then((movies) => {
         let temp = '';
         loading.innerHTML = ('');
-        console.log('Here are all the movies:');
         temp += (`<ul id="moviesList">`);
         movies.forEach(({title, rating, id}) => {
 
@@ -132,7 +96,6 @@ function refresh() { // function that processes movies from the api request resp
                 `<button class="remove">Remove</button></div>`);
         });
         temp += (`</ul>`);
-        console.log(temp);
         loading.innerHTML = temp;
         $('#add-movie').fadeIn();
     }).catch((error) => {
@@ -151,7 +114,6 @@ add.addEventListener('click', (e) => {
 $(".loading-setpoint").on("click", "li", function() {
     $(this).next().toggleClass('hidden');
     selectedMovie = ($(this));
-    // $(this).children('li').toggleClass('hidden');
 }).on("click", ".edit", function() {
     editMovie(selectedMovie);
 }).on("click", ".remove", function() {

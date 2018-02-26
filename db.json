@@ -2,13 +2,18 @@
   "movies": [
     {
       "title": "Indiana Jones",
-      "rating": "3",
+      "rating": "4",
       "id": 1
     },
     {
-      "title": "test",
-      "rating": "fdfdf",
-      "id": 6
+      "title": "Another Movie",
+      "rating": "4",
+      "id": 2
+    },
+    {
+      "title": "Yet Another Movie",
+      "rating": "4",
+      "id": 3
     }
   ]
 }
