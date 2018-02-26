@@ -1,24 +1,14 @@
 {
   "movies": [
     {
-      "title": "Casablanca",
-      "rating": "4",
+      "title": "Indiana Jones",
+      "rating": "3",
       "id": 1
     },
     {
-      "title": "Snorlax",
-      "rating": "4",
-      "id": 3
-    },
-    {
-      "title": "Indiana Jones",
-      "rating": "3",
-      "id": 4
-    },
-    {
-      "title": "Star Wars: A New Hope",
-      "rating": "4",
-      "id": 5
+      "title": "test",
+      "rating": "fdfdf",
+      "id": 6
     }
   ]
 }

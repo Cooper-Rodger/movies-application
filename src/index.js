@@ -58,6 +58,31 @@ function editMovie(movieToEdit) {
     });
 }
 
+function cleanUpID () {
+
+    getMovies().then((movies) => {
+        movies.forEach( ({id}, index) => {
+            let newID = index + 1;
+            // let oldID = {id};
+            // //before transform
+            // console.log(newID);
+            // oldID = newID;
+            // console.log(newID);
+            movies.id = newID;
+            console.log(JSON.stringify(movies));
+            // console.log(index);
+            const url = `/api/movies`;
+            const options = {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(movies),
+            };
+        })
+    });
+}
+
 function processAddedMovie() { // sends this movie request to the server and updates page
     const title = document.getElementById('title');
     const rating = document.getElementById('rating');
@@ -89,7 +114,7 @@ function removeMovie(movieToRemove) {
         body: JSON.stringify(movieToRemove),
     };
     fetch(url, options)
-        .then(() => refresh())
+        .then( () => cleanUpID() ).then( () => refresh() )
         .catch(() => alert(`Something went wrong, and everyone dies. The end.`));
     // use the id as a key value pair to find the movie that matches (maybe use .filter() ? )
 };
@@ -101,6 +126,7 @@ function refresh() { // function that processes movies from the api request resp
         console.log('Here are all the movies:');
         temp += (`<ul id="moviesList">`);
         movies.forEach(({title, rating, id}) => {
+
             temp += (`<li id="${id}"><span id="title-${id}">${title}</span><br><span id="rating-${id}">${rating}</span></li>` +
                 `<div class="hidden menu"><button class="edit">Edit</button>` +
                 `<button class="remove">Remove</button></div>`);
