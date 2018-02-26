@@ -1,7 +1,7 @@
 const $ = require('jQuery');
 const {getMovies} = require('./api.js');
 const loading = document.getElementsByClassName('loading-setpoint').item(0);
-const add = document.getElementById('add');
+// const add = document.getElementById('add');
 const edit = document.getElementById('edit');
 let selectedMovie = undefined;
 let formIsOpen = false;
@@ -100,7 +100,9 @@ function refresh() {
                 `<div class="hidden menu"><button class="edit">Edit</button>` +
                 `<button class="remove">Remove</button></div>`);
         });
-        temp += (`</ul>`);
+        temp += (`</ul> <div id="add-movie">` +
+            `<button id="add">Add</button>` +
+        `</div>`);
         loading.innerHTML = temp;
         $('#add-movie').fadeIn();
     }).catch((error) => {
@@ -110,11 +112,11 @@ function refresh() {
     });
 }
 
-add.addEventListener('click', (e) => {
-    e.preventDefault();
-    $('#add-movie').fadeToggle();
-    addMovieSetup();
-});
+// add.addEventListener('click', (e) => {
+//     e.preventDefault();
+//     $('#add-movie').fadeToggle();
+//     addMovieSetup();
+// });
 
 $(".loading-setpoint").on("click", "li", function() {
     $(this).next().toggleClass('hidden');
@@ -123,6 +125,12 @@ $(".loading-setpoint").on("click", "li", function() {
     editMovie(selectedMovie);
 }).on("click", ".remove", function() {
     removeMovie(selectedMovie).off();
+});
+
+$('.container').on('click', '#add', function(e){
+    e.preventDefault();
+    $('#add-movie').fadeToggle();
+    addMovieSetup();
 });
 
 

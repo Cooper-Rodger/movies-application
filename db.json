@@ -19,6 +19,11 @@
       "title": "Snorlax",
       "rating": "1000",
       "id": 4
+    },
+    {
+      "title": "ghost",
+      "rating": "5",
+      "id": 5
     }
   ]
 }
