@@ -3,21 +3,41 @@
 <head>
     <meta charset="UTF-8" />
     <title>My Application</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Limelight" rel="stylesheet">
     <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
-
-    <div class="container">
+    <header class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <h1 class="app-title">Movie Application</h1>
+            </div>
+            <div class="row">
+                <div class="col-sm-offset-4 col-sm-4">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <ul class="row link-list">
+                    <li class="list col-sm-4">Home</li>
+                    <li class="list col-sm-4">About</li>
+                    <li class="list col-sm-4">Contact</li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <div class="container info">
+        <h1 class="section-title">Movie List</h1>
         <div class="loading-setpoint">
         <h1>Loading...</h1>
         <p>To get started, edit <code>src/index.js</code>.</p>
         </div>
-        <!--<div id="add-movie">-->
-            <!--<button id="add">Add</button>-->
-        <!--</div>-->
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="./main.js"></script>
 </body>
 </html>

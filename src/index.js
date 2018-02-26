@@ -1,7 +1,6 @@
 const $ = require('jQuery');
 const {getMovies} = require('./api.js');
 const loading = document.getElementsByClassName('loading-setpoint').item(0);
-// const add = document.getElementById('add');
 const edit = document.getElementById('edit');
 let selectedMovie = undefined;
 let formIsOpen = false;
@@ -9,6 +8,10 @@ let formIsOpen = false;
 refresh(); // refreshes the movie list upon initially loading the page
 
 function addMovieSetup () { // actual function that allows us to add a movie via input fields
+    if (formIsOpen) {
+        return;
+    }
+    formIsOpen = true;
     const addForm = `<div id='addForm' class="form">` +
         `<form action="../db.json" method="POST">` +
         `<label for="title">Title <input type="text" id="title" name="newMovie"></label>` +
@@ -18,6 +21,7 @@ function addMovieSetup () { // actual function that allows us to add a movie via
     document.getElementById('buttonAdd').addEventListener('click', (e) => {
         e.preventDefault();
         $('#addForm').fadeOut();
+        formIsOpen = false;
         processAddedMovie();
     });
 }
@@ -33,8 +37,8 @@ function editMovie(movieToEdit) {
     const currentRating = movieToEdit.children().first().next().next().text();
     const editForm = `<div class="editForm form">` +
         `<form action="../db.json" method="POST">` +
-        `<label for="title">Title <input type="text" id="edit-title-${id}" name="editMovie" value="${currentTitle}"></label>` +
-        `<label for="rating">Rating <input type="text" id="edit-rating-${id}" name="editMovie" value="${currentRating}"></label>` +
+        `<label for="title">Title:  <input type="text" id="edit-title-${id}" name="editMovie" value="${currentTitle}"></label>` +
+        `<label for="rating">Rating:  <input type="text" id="edit-rating-${id}" name="editMovie" value="${currentRating}"></label>` +
         `<button id="buttonEdit">Submit Changes</button></form></div>`;
     movieToEdit.append(editForm);
     document.getElementById('buttonEdit').addEventListener('click', (e) => {
@@ -96,12 +100,12 @@ function refresh() {
         temp += (`<ul id="moviesList">`);
         movies.forEach(({title, rating, id}) => {
 
-            temp += (`<li id="${id}"><span id="title-${id}">${title}</span><br><span id="rating-${id}">${rating}</span></li>` +
-                `<div class="hidden menu"><button class="edit">Edit</button>` +
+            temp += (`<li id="${id}" class="text-center"><span id="title-${id}">${title}</span><br><span id="rating-${id}">${rating}</span></li>` +
+                `<div class="hidden menu text-center"><button class="edit">Edit</button>` +
                 `<button class="remove">Remove</button></div>`);
         });
         temp += (`</ul> <div id="add-movie">` +
-            `<button id="add">Add</button>` +
+            `<button id="add" class="center-block">Add</button>` +
         `</div>`);
         loading.innerHTML = temp;
         $('#add-movie').fadeIn();
@@ -111,12 +115,6 @@ function refresh() {
         console.log(error);
     });
 }
-
-// add.addEventListener('click', (e) => {
-//     e.preventDefault();
-//     $('#add-movie').fadeToggle();
-//     addMovieSetup();
-// });
 
 $(".loading-setpoint").on("click", "li", function() {
     $(this).next().toggleClass('hidden');

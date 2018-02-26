@@ -2,7 +2,7 @@
   "movies": [
     {
       "title": "Indiana Jones",
-      "rating": "4",
+      "rating": "5",
       "id": 1
     },
     {
@@ -12,18 +12,8 @@
     },
     {
       "title": "Yet Another One",
-      "rating": "3",
+      "rating": "4",
       "id": 3
-    },
-    {
-      "title": "Snorlax",
-      "rating": "1000",
-      "id": 4
-    },
-    {
-      "title": "ghost",
-      "rating": "5",
-      "id": 5
     }
   ]
 }
