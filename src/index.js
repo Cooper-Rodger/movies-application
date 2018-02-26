@@ -105,7 +105,7 @@ function refresh() {
                 `<button class="remove">Remove</button></div>`);
         });
         temp += (`</ul> <div id="add-movie">` +
-            `<button id="add" class="center-block">Add</button>` +
+            `<button id="add" class="center-block">Add Movie</button>` +
         `</div>`);
         loading.innerHTML = temp;
         $('#add-movie').fadeIn();
