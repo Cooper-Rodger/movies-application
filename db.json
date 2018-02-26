@@ -6,19 +6,19 @@
       "id": 1
     },
     {
-      "title": "Star Wars: A New Hope",
+      "title": "Snorlax",
       "rating": "5",
-      "id": 2
-    },
-    {
-      "title": "3",
-      "rating": "3",
       "id": 3
     },
     {
-      "title": "4",
-      "rating": "4",
+      "title": "Indiana Jones",
+      "rating": "3",
       "id": 4
+    },
+    {
+      "title": "Star Wars: A New Hope",
+      "rating": "4",
+      "id": 5
     }
   ]
 }
